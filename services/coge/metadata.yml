@@ -1,6 +1,6 @@
 ---
 
-name: coge
+name: api
 version: 0.1
 description: Passthrough adapter for CoGe Web Services RESTful API
 type: passthrough
