@@ -1,0 +1,36 @@
+---
+
+name: coge
+version: 0.1
+description: Passthrough adapter for CoGe Web Services RESTful API
+type: passthrough
+url: https://genomevolution.org/coge/api/v1
+whitelist:
+  - genomevolution.org:
+      deny:
+        - Authorization
+      forward:
+        - Accept-Encoding
+        - Referer
+        - Origin
+        - accept
+icon: CoGe-logo.png
+tags:
+    - 'coge'
+    - 'comparative genomics'
+    - 'epic-coge'
+
+authors:
+    - name: Vivek Krishnakumar
+      email: vkrishna@jcvi.org
+      sponsor_organization: J. Craig Venter Institute
+      sponsor_uri: https://www.jcvi.org
+
+sources:
+    - title: CoGe
+      description: A platform for performing Comparative Genomics research
+      sponsor_organization_name: Bio5 Institute at the University of Arizona, Tucson
+      sponsor_uri: http://bio5.org/
+      provider_name: Dr. Eric Lyons
+      provider_email: coge.genome@gmail.com
+      uri: https://genomevolution.org
