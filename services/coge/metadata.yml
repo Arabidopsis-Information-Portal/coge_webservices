@@ -19,6 +19,119 @@ tags:
     - 'coge'
     - 'comparative genomics'
     - 'epic-coge'
+    - 'jbrowse'
+
+endpoints:
+    /access/jbrowse/track/annotation/{id}/features/{chr}:
+        get:
+            summary: Return region features
+            description: Fetch feature data for the specified region in JSON format
+            parameters:
+                - name: id
+                  in: path
+                  description: Organism ID
+                  type: integer
+                  format: int32
+                  default: 16911
+                  required: true
+                - name: chr
+                  in: path
+                  description: Chromsome
+                  type: string
+                  required: true
+                  pattern: '^[1-5CM]$'
+                  default: '1'
+                - name: start
+                  description: Start
+                  type: integer
+                  format: int64
+                  required: true
+                  default: 6657000
+                  minimum: 0
+                - name: end
+                  description: End
+                  type: integer
+                  format: int64
+                  required: true
+                  default: 6658200
+                  minimum: 1
+                - name: scale
+                  description: Scale
+                  type: number
+                  format: double
+                - name: basesPerSpan
+                  description: Bases Per Span
+                  type: number
+                  format: double
+    /access/jbrowse/{datatype}/{id}/stats/global:
+        get:
+            summary: Return CoGe experiment or notebook global stats
+            description: Returns a JSON object containing global statistics about the features served by this store
+            parameters:
+                - name: datatype
+                  in: path
+                  description: Type of data
+                  type: string
+                  enum:
+                    - 'experiment'
+                    - 'notebook'
+                  default: 'experiment'
+                - name: id
+                  in: path
+                  description: Experiment ID
+                  type: integer
+                  format: int32
+                  default: 280
+                  required: true
+    /access/jbrowse/{datatype}/{id}/features/{chr}:
+        get:
+            summary: Return CoGe experiment or notebook data
+            description: Fetch quantitative data from a CoGe experiment or Notebook for the specified region in JSON format
+            parameters:
+                - name: datatype
+                  in: path
+                  description: Type of data
+                  type: string
+                  enum:
+                    - 'experiment'
+                    - 'notebook'
+                  default: 'experiment'
+                - name: id
+                  in: path
+                  description: Experiment ID
+                  type: integer
+                  format: int32
+                  default: 280
+                  required: true
+                - name: chr
+                  in: path
+                  description: Chromsome
+                  type: string
+                  required: true
+                  pattern: '^[1-5CM]$'
+                  default: '1'
+                - name: start
+                  description: Start
+                  type: integer
+                  format: int64
+                  required: true
+                  default: 4849000
+                  minimum: 0
+                - name: end
+                  description: End
+                  type: integer
+                  format: int64
+                  required: true
+                  default: 4850000
+                  minimum: 1
+                - name: scale
+                  description: Scale
+                  type: number
+                  format: double
+                - name: basesPerSpan
+                  description: Bases Per Span
+                  type: number
+                  format: double
 
 authors:
     - name: Vivek Krishnakumar
